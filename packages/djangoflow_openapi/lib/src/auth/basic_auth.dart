@@ -5,7 +5,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:djangoflow_openapi/src/auth/auth.dart';
+import 'package:callchimp_dart/src/auth/auth.dart';
 
 class BasicAuthInfo {
   final String username;

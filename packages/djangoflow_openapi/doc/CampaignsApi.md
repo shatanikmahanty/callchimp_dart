@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 ```
 
 All URIs are relative to *https://api.callchimp.ai/v1*
@@ -28,7 +28,7 @@ Get Campaign by Id
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -75,7 +75,7 @@ List Campaigns
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -122,7 +122,7 @@ Create a Campaign
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -169,7 +169,7 @@ Add Supervisors to Campaign by Id
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -218,7 +218,7 @@ Delete Campaign by Id
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -264,7 +264,7 @@ Remove Supervisors from Campaign by Id
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -313,7 +313,7 @@ Update Campaign by Id
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -362,7 +362,7 @@ Upload audio file to Campaign by Id
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

@@ -3,7 +3,7 @@
 //
 
 import 'package:dio/dio.dart';
-import 'package:djangoflow_openapi/src/auth/auth.dart';
+import 'package:callchimp_dart/src/auth/auth.dart';
 
 class OAuthInterceptor extends AuthInterceptor {
   final Map<String, String> tokens = {};

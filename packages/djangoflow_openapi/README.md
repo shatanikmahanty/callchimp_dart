@@ -124,7 +124,7 @@ dependencies:
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```dart
-import 'package:djangoflow_openapi/djangoflow_openapi.dart';
+import 'package:callchimp_dart/djangoflow_openapi.dart';
 
 
 final api = DjangoflowOpenapi().getCallsApi();

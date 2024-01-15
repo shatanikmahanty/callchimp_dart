@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:djangoflow_openapi/src/model/call_report_response_answered_calls.dart';
-import 'package:djangoflow_openapi/src/model/call_report_response_stats_inner.dart';
+import 'package:callchimp_dart/src/model/call_report_response_answered_calls.dart';
+import 'package:callchimp_dart/src/model/call_report_response_stats_inner.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'call_report_response.g.dart';

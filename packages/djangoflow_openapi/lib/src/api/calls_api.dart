@@ -6,15 +6,15 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:djangoflow_openapi/src/deserialize.dart';
+import 'package:callchimp_dart/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:djangoflow_openapi/src/model/call_list_response.dart';
-import 'package:djangoflow_openapi/src/model/call_report_request.dart';
-import 'package:djangoflow_openapi/src/model/call_report_response.dart';
-import 'package:djangoflow_openapi/src/model/call_response.dart';
-import 'package:djangoflow_openapi/src/model/inbound_call_list_response.dart';
-import 'package:djangoflow_openapi/src/model/post_dev_calls_request.dart';
+import 'package:callchimp_dart/src/model/call_list_response.dart';
+import 'package:callchimp_dart/src/model/call_report_request.dart';
+import 'package:callchimp_dart/src/model/call_report_response.dart';
+import 'package:callchimp_dart/src/model/call_response.dart';
+import 'package:callchimp_dart/src/model/inbound_call_list_response.dart';
+import 'package:callchimp_dart/src/model/post_dev_calls_request.dart';
 
 class CallsApi {
 

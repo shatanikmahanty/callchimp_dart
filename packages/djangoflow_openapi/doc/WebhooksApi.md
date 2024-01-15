@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 ```
 
 All URIs are relative to *https://api.callchimp.ai/v1*
@@ -25,7 +25,7 @@ Delete Webhook by Id
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -71,7 +71,7 @@ Update Webhook by Id
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -120,7 +120,7 @@ Create a Webhook
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -167,7 +167,7 @@ Get Webhook by Id
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -214,7 +214,7 @@ List Webhooks
 
 ### Example
 ```dart
-import 'package:djangoflow_openapi/api.dart';
+import 'package:callchimp_dart/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

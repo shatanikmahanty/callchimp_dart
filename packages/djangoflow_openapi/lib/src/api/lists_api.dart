@@ -6,12 +6,12 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:djangoflow_openapi/src/deserialize.dart';
+import 'package:callchimp_dart/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:djangoflow_openapi/src/model/lists_list_response.dart';
-import 'package:djangoflow_openapi/src/model/lists_request.dart';
-import 'package:djangoflow_openapi/src/model/lists_response.dart';
+import 'package:callchimp_dart/src/model/lists_list_response.dart';
+import 'package:callchimp_dart/src/model/lists_request.dart';
+import 'package:callchimp_dart/src/model/lists_response.dart';
 
 class ListsApi {
 

@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:djangoflow_openapi/src/model/campaign_response.dart';
+import 'package:callchimp_dart/src/model/campaign_response.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'campaign_list_response.g.dart';

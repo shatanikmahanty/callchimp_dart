@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:djangoflow_openapi/src/model/call_request_by_lead_id.dart';
-import 'package:djangoflow_openapi/src/model/call_request_by_vendor_lead_code.dart';
+import 'package:callchimp_dart/src/model/call_request_by_lead_id.dart';
+import 'package:callchimp_dart/src/model/call_request_by_vendor_lead_code.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'post_dev_calls_request.g.dart';

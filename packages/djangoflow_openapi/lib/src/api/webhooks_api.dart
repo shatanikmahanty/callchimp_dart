@@ -6,12 +6,12 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:djangoflow_openapi/src/deserialize.dart';
+import 'package:callchimp_dart/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:djangoflow_openapi/src/model/webhook_list_response.dart';
-import 'package:djangoflow_openapi/src/model/webhook_request.dart';
-import 'package:djangoflow_openapi/src/model/webhook_response.dart';
+import 'package:callchimp_dart/src/model/webhook_list_response.dart';
+import 'package:callchimp_dart/src/model/webhook_request.dart';
+import 'package:callchimp_dart/src/model/webhook_response.dart';
 
 class WebhooksApi {
 

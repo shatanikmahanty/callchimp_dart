@@ -6,15 +6,15 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:djangoflow_openapi/src/deserialize.dart';
+import 'package:callchimp_dart/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:djangoflow_openapi/src/model/supervisor_list_response.dart';
-import 'package:djangoflow_openapi/src/model/supervisor_request.dart';
-import 'package:djangoflow_openapi/src/model/supervisor_response.dart';
-import 'package:djangoflow_openapi/src/model/supervisor_send_otp_response.dart';
-import 'package:djangoflow_openapi/src/model/supervisor_verify_otp_request.dart';
-import 'package:djangoflow_openapi/src/model/supervisor_verify_otp_response.dart';
+import 'package:callchimp_dart/src/model/supervisor_list_response.dart';
+import 'package:callchimp_dart/src/model/supervisor_request.dart';
+import 'package:callchimp_dart/src/model/supervisor_response.dart';
+import 'package:callchimp_dart/src/model/supervisor_send_otp_response.dart';
+import 'package:callchimp_dart/src/model/supervisor_verify_otp_request.dart';
+import 'package:callchimp_dart/src/model/supervisor_verify_otp_response.dart';
 
 class SupervisorsApi {
 

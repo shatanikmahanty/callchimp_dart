@@ -6,17 +6,17 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:djangoflow_openapi/src/deserialize.dart';
+import 'package:callchimp_dart/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:djangoflow_openapi/src/model/campaign_add_super_request.dart';
-import 'package:djangoflow_openapi/src/model/campaign_add_super_response.dart';
-import 'package:djangoflow_openapi/src/model/campaign_list_response.dart';
-import 'package:djangoflow_openapi/src/model/campaign_remove_super_request.dart';
-import 'package:djangoflow_openapi/src/model/campaign_remove_super_response.dart';
-import 'package:djangoflow_openapi/src/model/campaign_request.dart';
-import 'package:djangoflow_openapi/src/model/campaign_response.dart';
-import 'package:djangoflow_openapi/src/model/campaign_upload_audio_response.dart';
+import 'package:callchimp_dart/src/model/campaign_add_super_request.dart';
+import 'package:callchimp_dart/src/model/campaign_add_super_response.dart';
+import 'package:callchimp_dart/src/model/campaign_list_response.dart';
+import 'package:callchimp_dart/src/model/campaign_remove_super_request.dart';
+import 'package:callchimp_dart/src/model/campaign_remove_super_response.dart';
+import 'package:callchimp_dart/src/model/campaign_request.dart';
+import 'package:callchimp_dart/src/model/campaign_response.dart';
+import 'package:callchimp_dart/src/model/campaign_upload_audio_response.dart';
 
 class CampaignsApi {
 

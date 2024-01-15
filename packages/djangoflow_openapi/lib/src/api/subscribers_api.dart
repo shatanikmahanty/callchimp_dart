@@ -6,13 +6,13 @@ import 'dart:async';
 
 // ignore: unused_import
 import 'dart:convert';
-import 'package:djangoflow_openapi/src/deserialize.dart';
+import 'package:callchimp_dart/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:djangoflow_openapi/src/model/subscriber_list_response.dart';
-import 'package:djangoflow_openapi/src/model/subscriber_request.dart';
-import 'package:djangoflow_openapi/src/model/subscriber_response.dart';
-import 'package:djangoflow_openapi/src/model/subscribers_update.dart';
+import 'package:callchimp_dart/src/model/subscriber_list_response.dart';
+import 'package:callchimp_dart/src/model/subscriber_request.dart';
+import 'package:callchimp_dart/src/model/subscriber_response.dart';
+import 'package:callchimp_dart/src/model/subscribers_update.dart';
 
 class SubscribersApi {
 

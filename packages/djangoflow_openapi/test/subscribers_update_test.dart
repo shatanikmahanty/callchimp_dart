@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:djangoflow_openapi/djangoflow_openapi.dart';
+import 'package:callchimp_dart/djangoflow_openapi.dart';
 
 // tests for SubscribersUpdate
 void main() {
