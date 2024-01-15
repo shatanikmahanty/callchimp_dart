@@ -1,7 +1,7 @@
-name: djangoflow_openapi
+name: callchimp_dart
 version: 1.0.0
-description: OpenAPI API client
-homepage: homepage
+description: CallChimp API client
+homepage: https://api.callchimp.ai/#overview
 
 environment:
   sdk: '>=2.17.0 <3.0.0'
