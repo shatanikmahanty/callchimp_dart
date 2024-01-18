@@ -2,9 +2,8 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-
-import 'package:dio/dio.dart';
 import 'package:callchimp_dart/src/auth/auth.dart';
+import 'package:dio/dio.dart';
 
 class ApiKeyAuthInterceptor extends AuthInterceptor {
   final Map<String, String> apiKeys = {};

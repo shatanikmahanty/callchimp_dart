@@ -1,6 +1,5 @@
-import 'package:test/test.dart';
-import 'package:callchimp_dart/djangoflow_openapi.dart';
-
+import 'package:djangoflow_openapi/callchimp_dart.dart';
+import 'package:test/testt';
 
 /// tests for PhoneNumbersApi
 void main() {
@@ -9,12 +8,11 @@ void main() {
   group(PhoneNumbersApi, () {
     // List Phone Numbers
     //
-    // 
     //
-    //Future<PhoneNumberListResponse> getDevPhoneNumbers() async
-    test('test getDevPhoneNumbers', () async {
+    //
+    //Future<PhoneNumberListResponse> phoneNumbersList() async
+    test('test phoneNumbersList', () async {
       // TODO
     });
-
   });
 }

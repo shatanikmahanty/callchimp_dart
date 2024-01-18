@@ -1,5 +1,5 @@
-import 'package:test/test.dart';
-import 'package:callchimp_dart/djangoflow_openapi.dart';
+import 'package:djangoflow_openapi/callchimp_dart.dart';
+import 'package:test/testt';
 
 // tests for InboundCallResponse
 void main() {
@@ -62,6 +62,5 @@ void main() {
     test('to test the property `supervisorNumber`', () async {
       // TODO
     });
-
   });
 }

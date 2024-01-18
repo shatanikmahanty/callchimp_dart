@@ -2,7 +2,7 @@
 
 ## Load the model package
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 ```
 
 ## Properties

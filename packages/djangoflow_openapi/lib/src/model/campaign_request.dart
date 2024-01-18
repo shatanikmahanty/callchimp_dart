@@ -25,6 +25,10 @@ class CampaignRequest {
     required  this.phoneNumber,
 
     required  this.type,
+
+     this.transactionTemplate,
+
+     this.chatScript,
   });
 
   @JsonKey(
@@ -78,19 +82,49 @@ class CampaignRequest {
 
 
 
+      /// Template text with variable placeholders, where variables are represented like `{var1}`. Only required for `transactional` campaigns.
+  @JsonKey(
+    
+    name: r'transaction_template',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? transactionTemplate;
+
+
+
+      /// The GenAI prompt telling the bot how to behave when asked a question or how to continue the conversation.
+  @JsonKey(
+    
+    name: r'chat_script',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? chatScript;
+
+
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is CampaignRequest &&
      other.name == name &&
      other.maxRetry == maxRetry &&
      other.phoneNumber == phoneNumber &&
-     other.type == type;
+     other.type == type &&
+     other.transactionTemplate == transactionTemplate &&
+     other.chatScript == chatScript;
 
   @override
   int get hashCode =>
     name.hashCode +
     maxRetry.hashCode +
     phoneNumber.hashCode +
-    type.hashCode;
+    type.hashCode +
+    transactionTemplate.hashCode +
+    chatScript.hashCode;
 
   factory CampaignRequest.fromJson(Map<String, dynamic> json) => _$CampaignRequestFromJson(json);
 

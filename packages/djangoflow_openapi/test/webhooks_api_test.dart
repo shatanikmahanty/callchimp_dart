@@ -1,6 +1,5 @@
-import 'package:test/test.dart';
-import 'package:callchimp_dart/djangoflow_openapi.dart';
-
+import 'package:djangoflow_openapi/callchimp_dart.dart';
+import 'package:test/testt';
 
 /// tests for WebhooksApi
 void main() {
@@ -9,34 +8,16 @@ void main() {
   group(WebhooksApi, () {
     // Delete Webhook by Id
     //
-    // 
     //
-    //Future deleteDevWebhooks42(int id) async
-    test('test deleteDevWebhooks42', () async {
-      // TODO
-    });
-
-    // Update Webhook by Id
     //
-    // 
-    //
-    //Future<WebhookResponse> patchDevWebhooks41(int id, WebhookRequest webhookRequest) async
-    test('test patchDevWebhooks41', () async {
-      // TODO
-    });
-
-    // Create a Webhook
-    //
-    // 
-    //
-    //Future<WebhookResponse> postDevWebhooks(WebhookRequest webhookRequest) async
-    test('test postDevWebhooks', () async {
+    //Future webhooksDelete(int id) async
+    test('test webhooksDelete', () async {
       // TODO
     });
 
     // Get Webhook by Id
     //
-    // 
+    //
     //
     //Future<WebhookResponse> webhooksGet(int id) async
     test('test webhooksGet', () async {
@@ -45,12 +26,29 @@ void main() {
 
     // List Webhooks
     //
-    // 
+    //
     //
     //Future<WebhookListResponse> webhooksList() async
     test('test webhooksList', () async {
       // TODO
     });
 
+    // Create a Webhook
+    //
+    //
+    //
+    //Future<WebhookResponse> webhooksPost(WebhookRequest webhookRequest) async
+    test('test webhooksPost', () async {
+      // TODO
+    });
+
+    // Update Webhook by Id
+    //
+    //
+    //
+    //Future<WebhookResponse> webhooksUpdate(int id, WebhookRequest webhookRequest) async
+    test('test webhooksUpdate', () async {
+      // TODO
+    });
   });
 }

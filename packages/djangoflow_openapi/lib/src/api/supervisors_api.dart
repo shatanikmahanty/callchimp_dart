@@ -3,27 +3,25 @@
 //
 
 import 'dart:async';
-
 // ignore: unused_import
 import 'dart:convert';
-import 'package:callchimp_dart/src/deserialize.dart';
-import 'package:dio/dio.dart';
 
+import 'package:callchimp_dart/src/deserialize.dart';
 import 'package:callchimp_dart/src/model/supervisor_list_response.dart';
 import 'package:callchimp_dart/src/model/supervisor_request.dart';
 import 'package:callchimp_dart/src/model/supervisor_response.dart';
 import 'package:callchimp_dart/src/model/supervisor_send_otp_response.dart';
 import 'package:callchimp_dart/src/model/supervisor_verify_otp_request.dart';
 import 'package:callchimp_dart/src/model/supervisor_verify_otp_response.dart';
+import 'package:dio/dio.dart';
 
 class SupervisorsApi {
-
   final Dio _dio;
 
   const SupervisorsApi(this._dio);
 
   /// Delete Supervisor by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric Supervisor Id
@@ -36,7 +34,7 @@ class SupervisorsApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<void>> supervisorsDelete({ 
+  Future<Response<void>> supervisorsDelete({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -77,7 +75,7 @@ class SupervisorsApi {
   }
 
   /// Get Supervisor by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric Supervisor Id
@@ -90,7 +88,7 @@ class SupervisorsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [SupervisorResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SupervisorResponse>> supervisorsGet({ 
+  Future<Response<SupervisorResponse>> supervisorsGet({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -130,8 +128,10 @@ class SupervisorsApi {
     SupervisorResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SupervisorResponse, SupervisorResponse>(rawData, 'SupervisorResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SupervisorResponse, SupervisorResponse>(rawData, 'SupervisorResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -155,7 +155,7 @@ _responseData = rawData == null ? null : deserialize<SupervisorResponse, Supervi
   }
 
   /// List Supervisors
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [page] - Page Number
@@ -168,7 +168,7 @@ _responseData = rawData == null ? null : deserialize<SupervisorResponse, Supervi
   ///
   /// Returns a [Future] containing a [Response] with a [SupervisorListResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SupervisorListResponse>> supervisorsList({ 
+  Future<Response<SupervisorListResponse>> supervisorsList({
     int? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -213,8 +213,11 @@ _responseData = rawData == null ? null : deserialize<SupervisorResponse, Supervi
     SupervisorListResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SupervisorListResponse, SupervisorListResponse>(rawData, 'SupervisorListResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SupervisorListResponse, SupervisorListResponse>(rawData, 'SupervisorListResponse',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -238,10 +241,10 @@ _responseData = rawData == null ? null : deserialize<SupervisorListResponse, Sup
   }
 
   /// Create a Supervisor
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [supervisorRequest] 
+  /// * [supervisorRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -251,7 +254,7 @@ _responseData = rawData == null ? null : deserialize<SupervisorListResponse, Sup
   ///
   /// Returns a [Future] containing a [Response] with a [SupervisorResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SupervisorResponse>> supervisorsPost({ 
+  Future<Response<SupervisorResponse>> supervisorsPost({
     required SupervisorRequest supervisorRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -284,10 +287,10 @@ _responseData = rawData == null ? null : deserialize<SupervisorListResponse, Sup
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(supervisorRequest);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(supervisorRequest);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -309,8 +312,10 @@ _bodyData=jsonEncode(supervisorRequest);
     SupervisorResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SupervisorResponse, SupervisorResponse>(rawData, 'SupervisorResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SupervisorResponse, SupervisorResponse>(rawData, 'SupervisorResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -334,7 +339,7 @@ _responseData = rawData == null ? null : deserialize<SupervisorResponse, Supervi
   }
 
   /// Send OTP to Supervisor by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric Supervisor Id
@@ -347,7 +352,7 @@ _responseData = rawData == null ? null : deserialize<SupervisorResponse, Supervi
   ///
   /// Returns a [Future] containing a [Response] with a [SupervisorSendOtpResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SupervisorSendOtpResponse>> supervisorsSendotp({ 
+  Future<Response<SupervisorSendOtpResponse>> supervisorsSendotp({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -387,8 +392,11 @@ _responseData = rawData == null ? null : deserialize<SupervisorResponse, Supervi
     SupervisorSendOtpResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SupervisorSendOtpResponse, SupervisorSendOtpResponse>(rawData, 'SupervisorSendOtpResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SupervisorSendOtpResponse, SupervisorSendOtpResponse>(rawData, 'SupervisorSendOtpResponse',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -412,11 +420,11 @@ _responseData = rawData == null ? null : deserialize<SupervisorSendOtpResponse, 
   }
 
   /// Update Supervisor by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric Supervisor Id
-  /// * [supervisorRequest] 
+  /// * [supervisorRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -426,7 +434,7 @@ _responseData = rawData == null ? null : deserialize<SupervisorSendOtpResponse, 
   ///
   /// Returns a [Future] containing a [Response] with a [SupervisorResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SupervisorResponse>> supervisorsUpdate({ 
+  Future<Response<SupervisorResponse>> supervisorsUpdate({
     required int id,
     required SupervisorRequest supervisorRequest,
     CancelToken? cancelToken,
@@ -460,10 +468,10 @@ _responseData = rawData == null ? null : deserialize<SupervisorSendOtpResponse, 
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(supervisorRequest);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(supervisorRequest);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -485,8 +493,10 @@ _bodyData=jsonEncode(supervisorRequest);
     SupervisorResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SupervisorResponse, SupervisorResponse>(rawData, 'SupervisorResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SupervisorResponse, SupervisorResponse>(rawData, 'SupervisorResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -510,11 +520,11 @@ _responseData = rawData == null ? null : deserialize<SupervisorResponse, Supervi
   }
 
   /// Verify Supervisor OTP by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric Supervisor Id
-  /// * [supervisorVerifyOtpRequest] 
+  /// * [supervisorVerifyOtpRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -524,7 +534,7 @@ _responseData = rawData == null ? null : deserialize<SupervisorResponse, Supervi
   ///
   /// Returns a [Future] containing a [Response] with a [SupervisorVerifyOtpResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SupervisorVerifyOtpResponse>> supervisorsVerifyotp({ 
+  Future<Response<SupervisorVerifyOtpResponse>> supervisorsVerifyotp({
     required int id,
     required SupervisorVerifyOtpRequest supervisorVerifyOtpRequest,
     CancelToken? cancelToken,
@@ -558,10 +568,10 @@ _responseData = rawData == null ? null : deserialize<SupervisorResponse, Supervi
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(supervisorVerifyOtpRequest);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(supervisorVerifyOtpRequest);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -583,8 +593,12 @@ _bodyData=jsonEncode(supervisorVerifyOtpRequest);
     SupervisorVerifyOtpResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SupervisorVerifyOtpResponse, SupervisorVerifyOtpResponse>(rawData, 'SupervisorVerifyOtpResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SupervisorVerifyOtpResponse, SupervisorVerifyOtpResponse>(
+              rawData, 'SupervisorVerifyOtpResponse',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -606,5 +620,4 @@ _responseData = rawData == null ? null : deserialize<SupervisorVerifyOtpResponse
       extra: _response.extra,
     );
   }
-
 }

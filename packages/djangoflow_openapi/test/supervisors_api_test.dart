@@ -1,6 +1,5 @@
-import 'package:test/test.dart';
-import 'package:callchimp_dart/djangoflow_openapi.dart';
-
+import 'package:djangoflow_openapi/callchimp_dart.dart';
+import 'package:test/testt';
 
 /// tests for SupervisorsApi
 void main() {
@@ -9,7 +8,7 @@ void main() {
   group(SupervisorsApi, () {
     // Delete Supervisor by Id
     //
-    // 
+    //
     //
     //Future supervisorsDelete(int id) async
     test('test supervisorsDelete', () async {
@@ -18,7 +17,7 @@ void main() {
 
     // Get Supervisor by Id
     //
-    // 
+    //
     //
     //Future<SupervisorResponse> supervisorsGet(int id) async
     test('test supervisorsGet', () async {
@@ -27,7 +26,7 @@ void main() {
 
     // List Supervisors
     //
-    // 
+    //
     //
     //Future<SupervisorListResponse> supervisorsList({ int page }) async
     test('test supervisorsList', () async {
@@ -36,7 +35,7 @@ void main() {
 
     // Create a Supervisor
     //
-    // 
+    //
     //
     //Future<SupervisorResponse> supervisorsPost(SupervisorRequest supervisorRequest) async
     test('test supervisorsPost', () async {
@@ -45,7 +44,7 @@ void main() {
 
     // Send OTP to Supervisor by Id
     //
-    // 
+    //
     //
     //Future<SupervisorSendOtpResponse> supervisorsSendotp(int id) async
     test('test supervisorsSendotp', () async {
@@ -54,7 +53,7 @@ void main() {
 
     // Update Supervisor by Id
     //
-    // 
+    //
     //
     //Future<SupervisorResponse> supervisorsUpdate(int id, SupervisorRequest supervisorRequest) async
     test('test supervisorsUpdate', () async {
@@ -63,12 +62,11 @@ void main() {
 
     // Verify Supervisor OTP by Id
     //
-    // 
+    //
     //
     //Future<SupervisorVerifyOtpResponse> supervisorsVerifyotp(int id, SupervisorVerifyOtpRequest supervisorVerifyOtpRequest) async
     test('test supervisorsVerifyotp', () async {
       // TODO
     });
-
   });
 }

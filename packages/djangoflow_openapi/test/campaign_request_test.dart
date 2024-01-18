@@ -1,5 +1,5 @@
-import 'package:test/test.dart';
-import 'package:callchimp_dart/djangoflow_openapi.dart';
+import 'package:djangoflow_openapi/callchimp_dart.dart';
+import 'package:test/testt';
 
 // tests for CampaignRequest
 void main() {
@@ -30,5 +30,16 @@ void main() {
       // TODO
     });
 
+    // Template text with variable placeholders, where variables are represented like `{var1}`. Only required for `transactional` campaigns.
+    // String transactionTemplate
+    test('to test the property `transactionTemplate`', () async {
+      // TODO
+    });
+
+    // The GenAI prompt telling the bot how to behave when asked a question or how to continue the conversation.
+    // String chatScript
+    test('to test the property `chatScript`', () async {
+      // TODO
+    });
   });
 }

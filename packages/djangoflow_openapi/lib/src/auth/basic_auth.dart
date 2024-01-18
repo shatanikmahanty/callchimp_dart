@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:callchimp_dart/src/auth/auth.dart';
+import 'package:dio/dio.dart';
 
 class BasicAuthInfo {
   final String username;
@@ -22,7 +22,8 @@ class BasicAuthInterceptor extends AuthInterceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) {
-    final metadataAuthInfo = getAuthInfo(options, (secure) => (secure['type'] == 'http' && secure['scheme'] == 'basic') || secure['type'] == 'basic');
+    final metadataAuthInfo = getAuthInfo(
+        options, (secure) => (secure['type'] == 'http' && secure['scheme'] == 'basic') || secure['type'] == 'basic');
     for (final info in metadataAuthInfo) {
       final authName = info['name'] as String;
       final basicAuthInfo = authInfo[authName];

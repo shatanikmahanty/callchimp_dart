@@ -1,24 +1,14 @@
-import 'package:test/test.dart';
-import 'package:callchimp_dart/djangoflow_openapi.dart';
-
+import 'package:djangoflow_openapi/callchimp_dart.dart';
+import 'package:test/testt';
 
 /// tests for SubscribersApi
 void main() {
   final instance = DjangoflowOpenapi().getSubscribersApi();
 
   group(SubscribersApi, () {
-    // Update Subscriber by Id
-    //
-    // 
-    //
-    //Future<SubscriberResponse> patchDevSubscribersById(int id, SubscribersUpdate subscribersUpdate) async
-    test('test patchDevSubscribersById', () async {
-      // TODO
-    });
-
     // Delete Subscriber by Id
     //
-    // 
+    //
     //
     //Future subscribersDelete(int id) async
     test('test subscribersDelete', () async {
@@ -27,7 +17,7 @@ void main() {
 
     // Get Subscriber by Id
     //
-    // 
+    //
     //
     //Future<SubscriberResponse> subscribersGet(int id) async
     test('test subscribersGet', () async {
@@ -36,7 +26,7 @@ void main() {
 
     // List Subscribers
     //
-    // 
+    //
     //
     //Future<SubscriberListResponse> subscribersList({ String page }) async
     test('test subscribersList', () async {
@@ -45,12 +35,20 @@ void main() {
 
     // Create one or more Subscriber(s)
     //
-    // 
+    //
     //
     //Future<SubscriberResponse> subscribersPost(SubscriberRequest subscriberRequest, { bool call }) async
     test('test subscribersPost', () async {
       // TODO
     });
 
+    // Update Subscriber by Id
+    //
+    //
+    //
+    //Future<SubscriberResponse> subscribersUpdate(int id, SubscribersUpdate subscribersUpdate) async
+    test('test subscribersUpdate', () async {
+      // TODO
+    });
   });
 }

@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 ```
 
 All URIs are relative to *https://api.callchimp.ai/v1*
@@ -27,7 +27,7 @@ Delete Supervisor by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -60,7 +60,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -73,7 +73,7 @@ Get Supervisor by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -120,7 +120,7 @@ List Supervisors
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -167,7 +167,7 @@ Create a Supervisor
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -214,7 +214,7 @@ Send OTP to Supervisor by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -261,7 +261,7 @@ Update Supervisor by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -310,7 +310,7 @@ Verify Supervisor OTP by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

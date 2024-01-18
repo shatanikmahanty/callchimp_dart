@@ -1,6 +1,5 @@
-import 'package:test/test.dart';
-import 'package:callchimp_dart/djangoflow_openapi.dart';
-
+import 'package:djangoflow_openapi/callchimp_dart.dart';
+import 'package:test/testt';
 
 /// tests for ListsApi
 void main() {
@@ -9,48 +8,47 @@ void main() {
   group(ListsApi, () {
     // Delete List by Id
     //
-    // 
     //
-    //Future deleteDevLists150(int id) async
-    test('test deleteDevLists150', () async {
+    //
+    //Future listsDelete(int id) async
+    test('test listsDelete', () async {
       // TODO
     });
 
     // Get List by Id
     //
-    // 
     //
-    //Future<ListsResponse> getDevLists137(int id) async
-    test('test getDevLists137', () async {
+    //
+    //Future<ListsResponse> listsGet(int id) async
+    test('test listsGet', () async {
       // TODO
     });
 
     // List Lists
     //
-    // 
+    //
     //
     //Future<ListsListResponse> listsList({ int page }) async
     test('test listsList', () async {
       // TODO
     });
 
-    // Update List by Id
-    //
-    // 
-    //
-    //Future<ListsResponse> patchDevLists151(int id, ListsRequest listsRequest) async
-    test('test patchDevLists151', () async {
-      // TODO
-    });
-
     // Create a List
     //
-    // 
     //
-    //Future<ListsResponse> postDevLists(ListsRequest listsRequest) async
-    test('test postDevLists', () async {
+    //
+    //Future<ListsResponse> listsPost(ListsRequest listsRequest) async
+    test('test listsPost', () async {
       // TODO
     });
 
+    // Update List by Id
+    //
+    //
+    //
+    //Future<ListsResponse> listsUpdate(int id, ListsRequest listsRequest) async
+    test('test listsUpdate', () async {
+      // TODO
+    });
   });
 }

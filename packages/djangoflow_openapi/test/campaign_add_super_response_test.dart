@@ -1,5 +1,5 @@
+import 'package:callchimp_dart/callchimp_dart.dart';
 import 'package:test/test.dart';
-import 'package:callchimp_dart/djangoflow_openapi.dart';
 
 // tests for CampaignAddSuperResponse
 void main() {
@@ -11,6 +11,5 @@ void main() {
     test('to test the property `message`', () async {
       // TODO
     });
-
   });
 }

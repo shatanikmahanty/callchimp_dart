@@ -2,22 +2,22 @@
 
 ## Load the API package
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 ```
 
 All URIs are relative to *https://api.callchimp.ai/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteDevLists150**](ListsApi.md#deletedevlists150) | **DELETE** /lists/{Id} | Delete List by Id
-[**getDevLists137**](ListsApi.md#getdevlists137) | **GET** /lists/{Id} | Get List by Id
+[**listsDelete**](ListsApi.md#listsdelete) | **DELETE** /lists/{Id} | Delete List by Id
+[**listsGet**](ListsApi.md#listsget) | **GET** /lists/{Id} | Get List by Id
 [**listsList**](ListsApi.md#listslist) | **GET** /lists | List Lists
-[**patchDevLists151**](ListsApi.md#patchdevlists151) | **PATCH** /lists/{Id} | Update List by Id
-[**postDevLists**](ListsApi.md#postdevlists) | **POST** /lists | Create a List
+[**listsPost**](ListsApi.md#listspost) | **POST** /lists | Create a List
+[**listsUpdate**](ListsApi.md#listsupdate) | **PATCH** /lists/{Id} | Update List by Id
 
 
-# **deleteDevLists150**
-> deleteDevLists150(id)
+# **listsDelete**
+> listsDelete(id)
 
 Delete List by Id
 
@@ -25,7 +25,7 @@ Delete List by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -35,9 +35,9 @@ final api = DjangoflowOpenapi().getListsApi();
 final int id = 56; // int | Numeric List Id
 
 try {
-    api.deleteDevLists150(id);
+    api.listsDelete(id);
 } catch on DioException (e) {
-    print('Exception when calling ListsApi->deleteDevLists150: $e\n');
+    print('Exception when calling ListsApi->listsDelete: $e\n');
 }
 ```
 
@@ -58,12 +58,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getDevLists137**
-> ListsResponse getDevLists137(id)
+# **listsGet**
+> ListsResponse listsGet(id)
 
 Get List by Id
 
@@ -71,7 +71,7 @@ Get List by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -81,10 +81,10 @@ final api = DjangoflowOpenapi().getListsApi();
 final int id = 56; // int | Numeric List Id
 
 try {
-    final response = api.getDevLists137(id);
+    final response = api.listsGet(id);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling ListsApi->getDevLists137: $e\n');
+    print('Exception when calling ListsApi->listsGet: $e\n');
 }
 ```
 
@@ -118,7 +118,7 @@ List Lists
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -156,30 +156,29 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **patchDevLists151**
-> ListsResponse patchDevLists151(id, listsRequest)
+# **listsPost**
+> ListsResponse listsPost(listsRequest)
 
-Update List by Id
+Create a List
 
 
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKeyPrefix = 'Bearer';
 
 final api = DjangoflowOpenapi().getListsApi();
-final int id = 56; // int | Numeric List Id
-final ListsRequest listsRequest = {"name":"Sample List"}; // ListsRequest | 
+final ListsRequest listsRequest = {"campaign":555,"description":"whenever","name":"Whatever"}; // ListsRequest | 
 
 try {
-    final response = api.patchDevLists151(id, listsRequest);
+    final response = api.listsPost(listsRequest);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling ListsApi->patchDevLists151: $e\n');
+    print('Exception when calling ListsApi->listsPost: $e\n');
 }
 ```
 
@@ -187,7 +186,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| Numeric List Id | 
  **listsRequest** | [**ListsRequest**](ListsRequest.md)|  | 
 
 ### Return type
@@ -205,29 +203,30 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **postDevLists**
-> ListsResponse postDevLists(listsRequest)
+# **listsUpdate**
+> ListsResponse listsUpdate(id, listsRequest)
 
-Create a List
+Update List by Id
 
 
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKeyPrefix = 'Bearer';
 
 final api = DjangoflowOpenapi().getListsApi();
-final ListsRequest listsRequest = {"campaign":555,"description":"whenever","name":"Whatever"}; // ListsRequest | 
+final int id = 56; // int | Numeric List Id
+final ListsRequest listsRequest = {"name":"Sample List"}; // ListsRequest | 
 
 try {
-    final response = api.postDevLists(listsRequest);
+    final response = api.listsUpdate(id, listsRequest);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling ListsApi->postDevLists: $e\n');
+    print('Exception when calling ListsApi->listsUpdate: $e\n');
 }
 ```
 
@@ -235,6 +234,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **int**| Numeric List Id | 
  **listsRequest** | [**ListsRequest**](ListsRequest.md)|  | 
 
 ### Return type

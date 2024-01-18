@@ -1,4 +1,4 @@
-# Generated using djangoflow_openapi (EXPERIMENTAL)
+# djangoflow_openapi (EXPERIMENTAL)
 ## Introduction👋
 Introducing OpenAPI spec for doing almost anything in [callchimp.ai](https://callchimp.ai). CallChimp is a Gen AI Call Center Enhancing telecommunication with GPT-driven bulk calling. It is scalable, user-friendly, and customizable. Optimized for seamless integration and usability.
 ## API Categories📋
@@ -124,7 +124,7 @@ dependencies:
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```dart
-import 'package:callchimp_dart/djangoflow_openapi.dart';
+import 'package:djangoflow_openapi/callchimp_dart.dart';
 
 
 final api = DjangoflowOpenapi().getCallsApi();
@@ -145,30 +145,30 @@ All URIs are relative to *https://api.callchimp.ai/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*CallsApi*](doc/CallsApi.md) | [**callsGet**](doc/CallsApi.md#callsget) | **GET** /calls/{Id} | Get Call by ID
-[*CallsApi*](doc/CallsApi.md) | [**callsList**](doc/CallsApi.md#callslist) | **GET** /calls | List Outbound Calls
+[*CallsApi*](doc/CallsApi.md) | [**callsGet**](doc/CallsApi.md#callsget) | **GET** /calls/{Id} | Get Call by Id
+[*CallsApi*](doc/CallsApi.md) | [**callsListInbound**](doc/CallsApi.md#callslistinbound) | **GET** /calls/inbound | List Inbound Calls
+[*CallsApi*](doc/CallsApi.md) | [**callsListOutbound**](doc/CallsApi.md#callslistoutbound) | **GET** /calls | List Outbound Calls
+[*CallsApi*](doc/CallsApi.md) | [**callsPost**](doc/CallsApi.md#callspost) | **POST** /calls | Create a Call
 [*CallsApi*](doc/CallsApi.md) | [**callsReports**](doc/CallsApi.md#callsreports) | **POST** /calls/reports | Generate Call Reports
-[*CallsApi*](doc/CallsApi.md) | [**getDevCallsInbound**](doc/CallsApi.md#getdevcallsinbound) | **GET** /calls/inbound | List Inbound Calls
-[*CallsApi*](doc/CallsApi.md) | [**postDevCalls**](doc/CallsApi.md#postdevcalls) | **POST** /calls | Create a Call
+[*CampaignsApi*](doc/CampaignsApi.md) | [**campaignsAddsuper**](doc/CampaignsApi.md#campaignsaddsuper) | **POST** /campaigns/{Id}/add_super | Add Supervisors to Campaign by Id
+[*CampaignsApi*](doc/CampaignsApi.md) | [**campaignsDelete**](doc/CampaignsApi.md#campaignsdelete) | **DELETE** /campaigns/{Id} | Delete Campaign by Id
 [*CampaignsApi*](doc/CampaignsApi.md) | [**campaignsGet**](doc/CampaignsApi.md#campaignsget) | **GET** /campaigns/{Id} | Get Campaign by Id
 [*CampaignsApi*](doc/CampaignsApi.md) | [**campaignsList**](doc/CampaignsApi.md#campaignslist) | **GET** /campaigns | List Campaigns
 [*CampaignsApi*](doc/CampaignsApi.md) | [**campaignsPost**](doc/CampaignsApi.md#campaignspost) | **POST** /campaigns | Create a Campaign
-[*CampaignsApi*](doc/CampaignsApi.md) | [**devCampaignsAddsuper**](doc/CampaignsApi.md#devcampaignsaddsuper) | **POST** /campaigns/{Id}/add_super | Add Supervisors to Campaign by Id
-[*CampaignsApi*](doc/CampaignsApi.md) | [**devCampaignsDelete**](doc/CampaignsApi.md#devcampaignsdelete) | **DELETE** /campaigns/{Id} | Delete Campaign by Id
-[*CampaignsApi*](doc/CampaignsApi.md) | [**devCampaignsRemovesuper**](doc/CampaignsApi.md#devcampaignsremovesuper) | **POST** /campaigns/{Id}/remove_super | Remove Supervisors from Campaign by Id
-[*CampaignsApi*](doc/CampaignsApi.md) | [**devCampaignsUpdate**](doc/CampaignsApi.md#devcampaignsupdate) | **PATCH** /campaigns/{Id} | Update Campaign by Id
-[*CampaignsApi*](doc/CampaignsApi.md) | [**devCampaignsUploadblast**](doc/CampaignsApi.md#devcampaignsuploadblast) | **PATCH** /campaigns/{Id}/upload_blast_file | Upload audio file to Campaign by Id
-[*ListsApi*](doc/ListsApi.md) | [**deleteDevLists150**](doc/ListsApi.md#deletedevlists150) | **DELETE** /lists/{Id} | Delete List by Id
-[*ListsApi*](doc/ListsApi.md) | [**getDevLists137**](doc/ListsApi.md#getdevlists137) | **GET** /lists/{Id} | Get List by Id
+[*CampaignsApi*](doc/CampaignsApi.md) | [**campaignsRemovesuper**](doc/CampaignsApi.md#campaignsremovesuper) | **POST** /campaigns/{Id}/remove_super | Remove Supervisors from Campaign by Id
+[*CampaignsApi*](doc/CampaignsApi.md) | [**campaignsUpdate**](doc/CampaignsApi.md#campaignsupdate) | **PATCH** /campaigns/{Id} | Update Campaign by Id
+[*CampaignsApi*](doc/CampaignsApi.md) | [**campaignsUploadblast**](doc/CampaignsApi.md#campaignsuploadblast) | **PATCH** /campaigns/{Id}/upload_blast_file | Upload audio file to Campaign by Id
+[*ListsApi*](doc/ListsApi.md) | [**listsDelete**](doc/ListsApi.md#listsdelete) | **DELETE** /lists/{Id} | Delete List by Id
+[*ListsApi*](doc/ListsApi.md) | [**listsGet**](doc/ListsApi.md#listsget) | **GET** /lists/{Id} | Get List by Id
 [*ListsApi*](doc/ListsApi.md) | [**listsList**](doc/ListsApi.md#listslist) | **GET** /lists | List Lists
-[*ListsApi*](doc/ListsApi.md) | [**patchDevLists151**](doc/ListsApi.md#patchdevlists151) | **PATCH** /lists/{Id} | Update List by Id
-[*ListsApi*](doc/ListsApi.md) | [**postDevLists**](doc/ListsApi.md#postdevlists) | **POST** /lists | Create a List
-[*PhoneNumbersApi*](doc/PhoneNumbersApi.md) | [**getDevPhoneNumbers**](doc/PhoneNumbersApi.md#getdevphonenumbers) | **GET** /phone_numbers | List Phone Numbers
-[*SubscribersApi*](doc/SubscribersApi.md) | [**patchDevSubscribersById**](doc/SubscribersApi.md#patchdevsubscribersbyid) | **PATCH** /subscribers/{Id} | Update Subscriber by Id
+[*ListsApi*](doc/ListsApi.md) | [**listsPost**](doc/ListsApi.md#listspost) | **POST** /lists | Create a List
+[*ListsApi*](doc/ListsApi.md) | [**listsUpdate**](doc/ListsApi.md#listsupdate) | **PATCH** /lists/{Id} | Update List by Id
+[*PhoneNumbersApi*](doc/PhoneNumbersApi.md) | [**phoneNumbersList**](doc/PhoneNumbersApi.md#phonenumberslist) | **GET** /phone_numbers | List Phone Numbers
 [*SubscribersApi*](doc/SubscribersApi.md) | [**subscribersDelete**](doc/SubscribersApi.md#subscribersdelete) | **DELETE** /subscribers/{Id} | Delete Subscriber by Id
 [*SubscribersApi*](doc/SubscribersApi.md) | [**subscribersGet**](doc/SubscribersApi.md#subscribersget) | **GET** /subscribers/{Id} | Get Subscriber by Id
 [*SubscribersApi*](doc/SubscribersApi.md) | [**subscribersList**](doc/SubscribersApi.md#subscriberslist) | **GET** /subscribers | List Subscribers
 [*SubscribersApi*](doc/SubscribersApi.md) | [**subscribersPost**](doc/SubscribersApi.md#subscriberspost) | **POST** /subscribers | Create one or more Subscriber(s)
+[*SubscribersApi*](doc/SubscribersApi.md) | [**subscribersUpdate**](doc/SubscribersApi.md#subscribersupdate) | **PATCH** /subscribers/{Id} | Update Subscriber by Id
 [*SupervisorsApi*](doc/SupervisorsApi.md) | [**supervisorsDelete**](doc/SupervisorsApi.md#supervisorsdelete) | **DELETE** /supervisors/{Id} | Delete Supervisor by Id
 [*SupervisorsApi*](doc/SupervisorsApi.md) | [**supervisorsGet**](doc/SupervisorsApi.md#supervisorsget) | **GET** /supervisors/{Id} | Get Supervisor by Id
 [*SupervisorsApi*](doc/SupervisorsApi.md) | [**supervisorsList**](doc/SupervisorsApi.md#supervisorslist) | **GET** /supervisors | List Supervisors
@@ -176,11 +176,11 @@ Class | Method | HTTP request | Description
 [*SupervisorsApi*](doc/SupervisorsApi.md) | [**supervisorsSendotp**](doc/SupervisorsApi.md#supervisorssendotp) | **POST** /supervisors/{Id}/send_otp | Send OTP to Supervisor by Id
 [*SupervisorsApi*](doc/SupervisorsApi.md) | [**supervisorsUpdate**](doc/SupervisorsApi.md#supervisorsupdate) | **PATCH** /supervisors/{Id} | Update Supervisor by Id
 [*SupervisorsApi*](doc/SupervisorsApi.md) | [**supervisorsVerifyotp**](doc/SupervisorsApi.md#supervisorsverifyotp) | **POST** /supervisors/{Id}/verify_otp | Verify Supervisor OTP by Id
-[*WebhooksApi*](doc/WebhooksApi.md) | [**deleteDevWebhooks42**](doc/WebhooksApi.md#deletedevwebhooks42) | **DELETE** /webhooks/{Id} | Delete Webhook by Id
-[*WebhooksApi*](doc/WebhooksApi.md) | [**patchDevWebhooks41**](doc/WebhooksApi.md#patchdevwebhooks41) | **PATCH** /webhooks/{Id} | Update Webhook by Id
-[*WebhooksApi*](doc/WebhooksApi.md) | [**postDevWebhooks**](doc/WebhooksApi.md#postdevwebhooks) | **POST** /webhooks | Create a Webhook
+[*WebhooksApi*](doc/WebhooksApi.md) | [**webhooksDelete**](doc/WebhooksApi.md#webhooksdelete) | **DELETE** /webhooks/{Id} | Delete Webhook by Id
 [*WebhooksApi*](doc/WebhooksApi.md) | [**webhooksGet**](doc/WebhooksApi.md#webhooksget) | **GET** /webhooks/{Id} | Get Webhook by Id
 [*WebhooksApi*](doc/WebhooksApi.md) | [**webhooksList**](doc/WebhooksApi.md#webhookslist) | **GET** /webhooks | List Webhooks
+[*WebhooksApi*](doc/WebhooksApi.md) | [**webhooksPost**](doc/WebhooksApi.md#webhookspost) | **POST** /webhooks | Create a Webhook
+[*WebhooksApi*](doc/WebhooksApi.md) | [**webhooksUpdate**](doc/WebhooksApi.md#webhooksupdate) | **PATCH** /webhooks/{Id} | Update Webhook by Id
 
 
 ## Documentation For Models
@@ -193,6 +193,7 @@ Class | Method | HTTP request | Description
  - [CallRequestByLeadId](doc/CallRequestByLeadId.md)
  - [CallRequestByVendorLeadCode](doc/CallRequestByVendorLeadCode.md)
  - [CallResponse](doc/CallResponse.md)
+ - [CallsPostRequest](doc/CallsPostRequest.md)
  - [CampaignAddSuperRequest](doc/CampaignAddSuperRequest.md)
  - [CampaignAddSuperResponse](doc/CampaignAddSuperResponse.md)
  - [CampaignListResponse](doc/CampaignListResponse.md)
@@ -209,9 +210,10 @@ Class | Method | HTTP request | Description
  - [ListsListResponse](doc/ListsListResponse.md)
  - [ListsRequest](doc/ListsRequest.md)
  - [ListsResponse](doc/ListsResponse.md)
+ - [Model4XXResponse](doc/Model4XXResponse.md)
+ - [Model4XXResponseErrorsInner](doc/Model4XXResponseErrorsInner.md)
  - [PhoneNumberListResponse](doc/PhoneNumberListResponse.md)
  - [PhoneNumberResponse](doc/PhoneNumberResponse.md)
- - [PostDevCallsRequest](doc/PostDevCallsRequest.md)
  - [SubscriberListResponse](doc/SubscriberListResponse.md)
  - [SubscriberRequest](doc/SubscriberRequest.md)
  - [SubscriberResponse](doc/SubscriberResponse.md)
@@ -222,6 +224,7 @@ Class | Method | HTTP request | Description
  - [SupervisorSendOtpResponse](doc/SupervisorSendOtpResponse.md)
  - [SupervisorVerifyOtpRequest](doc/SupervisorVerifyOtpRequest.md)
  - [SupervisorVerifyOtpResponse](doc/SupervisorVerifyOtpResponse.md)
+ - [TransactionCallRequestByLeadId](doc/TransactionCallRequestByLeadId.md)
  - [WebhookListResponse](doc/WebhookListResponse.md)
  - [WebhookRequest](doc/WebhookRequest.md)
  - [WebhookResponse](doc/WebhookResponse.md)

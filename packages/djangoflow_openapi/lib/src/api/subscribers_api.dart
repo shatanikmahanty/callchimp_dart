@@ -3,123 +3,23 @@
 //
 
 import 'dart:async';
-
 // ignore: unused_import
 import 'dart:convert';
-import 'package:callchimp_dart/src/deserialize.dart';
-import 'package:dio/dio.dart';
 
+import 'package:callchimp_dart/src/deserialize.dart';
 import 'package:callchimp_dart/src/model/subscriber_list_response.dart';
 import 'package:callchimp_dart/src/model/subscriber_request.dart';
 import 'package:callchimp_dart/src/model/subscriber_response.dart';
 import 'package:callchimp_dart/src/model/subscribers_update.dart';
+import 'package:dio/dio.dart';
 
 class SubscribersApi {
-
   final Dio _dio;
 
   const SubscribersApi(this._dio);
 
-  /// Update Subscriber by Id
-  /// 
-  ///
-  /// Parameters:
-  /// * [id] - Numeric Subscriber Id
-  /// * [subscribersUpdate] 
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future] containing a [Response] with a [SubscriberResponse] as data
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<SubscriberResponse>> patchDevSubscribersById({ 
-    required int id,
-    required SubscribersUpdate subscribersUpdate,
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/subscribers/{Id}'.replaceAll('{' r'Id' '}', id.toString());
-    final _options = Options(
-      method: r'PATCH',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'apiKey',
-            'name': 'x-api-key',
-            'keyName': 'x-api-key',
-            'where': 'header',
-          },
-        ],
-        ...?extra,
-      },
-      contentType: 'application/json',
-      validateStatus: validateStatus,
-    );
-
-    dynamic _bodyData;
-
-    try {
-_bodyData=jsonEncode(subscribersUpdate);
-    } catch(error, stackTrace) {
-      throw DioException(
-         requestOptions: _options.compose(
-          _dio.options,
-          _path,
-        ),
-        type: DioExceptionType.unknown,
-        error: error,
-        stackTrace: stackTrace,
-      );
-    }
-
-    final _response = await _dio.request<Object>(
-      _path,
-      data: _bodyData,
-      options: _options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    SubscriberResponse? _responseData;
-
-    try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SubscriberResponse, SubscriberResponse>(rawData, 'SubscriberResponse', growable: true);
-    } catch (error, stackTrace) {
-      throw DioException(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioExceptionType.unknown,
-        error: error,
-        stackTrace: stackTrace,
-      );
-    }
-
-    return Response<SubscriberResponse>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
-  }
-
   /// Delete Subscriber by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric Subscriber Id
@@ -132,7 +32,7 @@ _responseData = rawData == null ? null : deserialize<SubscriberResponse, Subscri
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<void>> subscribersDelete({ 
+  Future<Response<void>> subscribersDelete({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -173,7 +73,7 @@ _responseData = rawData == null ? null : deserialize<SubscriberResponse, Subscri
   }
 
   /// Get Subscriber by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric Subscriber Id
@@ -186,7 +86,7 @@ _responseData = rawData == null ? null : deserialize<SubscriberResponse, Subscri
   ///
   /// Returns a [Future] containing a [Response] with a [SubscriberResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SubscriberResponse>> subscribersGet({ 
+  Future<Response<SubscriberResponse>> subscribersGet({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -226,8 +126,10 @@ _responseData = rawData == null ? null : deserialize<SubscriberResponse, Subscri
     SubscriberResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SubscriberResponse, SubscriberResponse>(rawData, 'SubscriberResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SubscriberResponse, SubscriberResponse>(rawData, 'SubscriberResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -251,7 +153,7 @@ _responseData = rawData == null ? null : deserialize<SubscriberResponse, Subscri
   }
 
   /// List Subscribers
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [page] - page
@@ -264,7 +166,7 @@ _responseData = rawData == null ? null : deserialize<SubscriberResponse, Subscri
   ///
   /// Returns a [Future] containing a [Response] with a [SubscriberListResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SubscriberListResponse>> subscribersList({ 
+  Future<Response<SubscriberListResponse>> subscribersList({
     String? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -309,8 +211,11 @@ _responseData = rawData == null ? null : deserialize<SubscriberResponse, Subscri
     SubscriberListResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SubscriberListResponse, SubscriberListResponse>(rawData, 'SubscriberListResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SubscriberListResponse, SubscriberListResponse>(rawData, 'SubscriberListResponse',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -334,10 +239,10 @@ _responseData = rawData == null ? null : deserialize<SubscriberListResponse, Sub
   }
 
   /// Create one or more Subscriber(s)
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [subscriberRequest] 
+  /// * [subscriberRequest]
   /// * [call] - Set to true if you want to place call after inserting the subscriber
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -348,7 +253,7 @@ _responseData = rawData == null ? null : deserialize<SubscriberListResponse, Sub
   ///
   /// Returns a [Future] containing a [Response] with a [SubscriberResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SubscriberResponse>> subscribersPost({ 
+  Future<Response<SubscriberResponse>> subscribersPost({
     required SubscriberRequest subscriberRequest,
     bool? call,
     CancelToken? cancelToken,
@@ -386,10 +291,10 @@ _responseData = rawData == null ? null : deserialize<SubscriberListResponse, Sub
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(subscriberRequest);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(subscriberRequest);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
@@ -413,8 +318,10 @@ _bodyData=jsonEncode(subscriberRequest);
     SubscriberResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<SubscriberResponse, SubscriberResponse>(rawData, 'SubscriberResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SubscriberResponse, SubscriberResponse>(rawData, 'SubscriberResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -437,4 +344,103 @@ _responseData = rawData == null ? null : deserialize<SubscriberResponse, Subscri
     );
   }
 
+  /// Update Subscriber by Id
+  ///
+  ///
+  /// Parameters:
+  /// * [id] - Numeric Subscriber Id
+  /// * [subscribersUpdate]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [SubscriberResponse] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<SubscriberResponse>> subscribersUpdate({
+    required int id,
+    required SubscribersUpdate subscribersUpdate,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/subscribers/{Id}'.replaceAll('{' r'Id' '}', id.toString());
+    final _options = Options(
+      method: r'PATCH',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'x-api-key',
+            'keyName': 'x-api-key',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      _bodyData = jsonEncode(subscribersUpdate);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    SubscriberResponse? _responseData;
+
+    try {
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<SubscriberResponse, SubscriberResponse>(rawData, 'SubscriberResponse', growable: true);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<SubscriberResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
 }

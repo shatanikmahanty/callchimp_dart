@@ -22,22 +22,38 @@ CampaignRequest _$CampaignRequestFromJson(Map<String, dynamic> json) =>
           phoneNumber: $checkedConvert('phone_number', (v) => v as int),
           type: $checkedConvert(
               'type', (v) => $enumDecode(_$CampaignRequestTypeEnumEnumMap, v)),
+          transactionTemplate:
+              $checkedConvert('transaction_template', (v) => v as String?),
+          chatScript: $checkedConvert('chat_script', (v) => v as String?),
         );
         return val;
       },
       fieldKeyMap: const {
         'maxRetry': 'max_retry',
-        'phoneNumber': 'phone_number'
+        'phoneNumber': 'phone_number',
+        'transactionTemplate': 'transaction_template',
+        'chatScript': 'chat_script'
       },
     );
 
-Map<String, dynamic> _$CampaignRequestToJson(CampaignRequest instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'max_retry': _$CampaignRequestMaxRetryEnumEnumMap[instance.maxRetry]!,
-      'phone_number': instance.phoneNumber,
-      'type': _$CampaignRequestTypeEnumEnumMap[instance.type]!,
-    };
+Map<String, dynamic> _$CampaignRequestToJson(CampaignRequest instance) {
+  final val = <String, dynamic>{
+    'name': instance.name,
+    'max_retry': _$CampaignRequestMaxRetryEnumEnumMap[instance.maxRetry]!,
+    'phone_number': instance.phoneNumber,
+    'type': _$CampaignRequestTypeEnumEnumMap[instance.type]!,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('transaction_template', instance.transactionTemplate);
+  writeNotNull('chat_script', instance.chatScript);
+  return val;
+}
 
 const _$CampaignRequestMaxRetryEnumEnumMap = {
   CampaignRequestMaxRetryEnum.number0: 0,

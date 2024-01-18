@@ -3,12 +3,10 @@
 //
 
 import 'dart:async';
-
 // ignore: unused_import
 import 'dart:convert';
-import 'package:callchimp_dart/src/deserialize.dart';
-import 'package:dio/dio.dart';
 
+import 'package:callchimp_dart/src/deserialize.dart';
 import 'package:callchimp_dart/src/model/campaign_add_super_request.dart';
 import 'package:callchimp_dart/src/model/campaign_add_super_response.dart';
 import 'package:callchimp_dart/src/model/campaign_list_response.dart';
@@ -17,15 +15,170 @@ import 'package:callchimp_dart/src/model/campaign_remove_super_response.dart';
 import 'package:callchimp_dart/src/model/campaign_request.dart';
 import 'package:callchimp_dart/src/model/campaign_response.dart';
 import 'package:callchimp_dart/src/model/campaign_upload_audio_response.dart';
+import 'package:dio/dio.dart';
 
 class CampaignsApi {
-
   final Dio _dio;
 
   const CampaignsApi(this._dio);
 
+  /// Add Supervisors to Campaign by Id
+  ///
+  ///
+  /// Parameters:
+  /// * [id] - Numeric Campaign id
+  /// * [campaignAddSuperRequest]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [CampaignAddSuperResponse] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<CampaignAddSuperResponse>> campaignsAddsuper({
+    required int id,
+    required CampaignAddSuperRequest campaignAddSuperRequest,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/campaigns/{Id}/add_super'.replaceAll('{' r'Id' '}', id.toString());
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'x-api-key',
+            'keyName': 'x-api-key',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      _bodyData = jsonEncode(campaignAddSuperRequest);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    CampaignAddSuperResponse? _responseData;
+
+    try {
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<CampaignAddSuperResponse, CampaignAddSuperResponse>(rawData, 'CampaignAddSuperResponse',
+              growable: true);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<CampaignAddSuperResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Delete Campaign by Id
+  ///
+  ///
+  /// Parameters:
+  /// * [id] - Numeric id to get
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> campaignsDelete({
+    required int id,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/campaigns/{Id}'.replaceAll('{' r'Id' '}', id.toString());
+    final _options = Options(
+      method: r'DELETE',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'x-api-key',
+            'keyName': 'x-api-key',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
   /// Get Campaign by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric id to get
@@ -38,7 +191,7 @@ class CampaignsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CampaignResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CampaignResponse>> campaignsGet({ 
+  Future<Response<CampaignResponse>> campaignsGet({
     required int id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -78,8 +231,10 @@ class CampaignsApi {
     CampaignResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignResponse>(rawData, 'CampaignResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<CampaignResponse, CampaignResponse>(rawData, 'CampaignResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -103,7 +258,7 @@ _responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignR
   }
 
   /// List Campaigns
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [page] - Page Number
@@ -116,7 +271,7 @@ _responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignR
   ///
   /// Returns a [Future] containing a [Response] with a [CampaignListResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CampaignListResponse>> campaignsList({ 
+  Future<Response<CampaignListResponse>> campaignsList({
     int? page,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -161,8 +316,10 @@ _responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignR
     CampaignListResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<CampaignListResponse, CampaignListResponse>(rawData, 'CampaignListResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<CampaignListResponse, CampaignListResponse>(rawData, 'CampaignListResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -186,10 +343,10 @@ _responseData = rawData == null ? null : deserialize<CampaignListResponse, Campa
   }
 
   /// Create a Campaign
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [campaignRequest] 
+  /// * [campaignRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -199,7 +356,7 @@ _responseData = rawData == null ? null : deserialize<CampaignListResponse, Campa
   ///
   /// Returns a [Future] containing a [Response] with a [CampaignResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CampaignResponse>> campaignsPost({ 
+  Future<Response<CampaignResponse>> campaignsPost({
     required CampaignRequest campaignRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -232,10 +389,10 @@ _responseData = rawData == null ? null : deserialize<CampaignListResponse, Campa
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(campaignRequest);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(campaignRequest);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -257,8 +414,10 @@ _bodyData=jsonEncode(campaignRequest);
     CampaignResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignResponse>(rawData, 'CampaignResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<CampaignResponse, CampaignResponse>(rawData, 'CampaignResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -281,164 +440,12 @@ _responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignR
     );
   }
 
-  /// Add Supervisors to Campaign by Id
-  /// 
-  ///
-  /// Parameters:
-  /// * [id] - Numeric Campaign id
-  /// * [campaignAddSuperRequest] 
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future] containing a [Response] with a [CampaignAddSuperResponse] as data
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<CampaignAddSuperResponse>> devCampaignsAddsuper({ 
-    required int id,
-    required CampaignAddSuperRequest campaignAddSuperRequest,
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/campaigns/{Id}/add_super'.replaceAll('{' r'Id' '}', id.toString());
-    final _options = Options(
-      method: r'POST',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'apiKey',
-            'name': 'x-api-key',
-            'keyName': 'x-api-key',
-            'where': 'header',
-          },
-        ],
-        ...?extra,
-      },
-      contentType: 'application/json',
-      validateStatus: validateStatus,
-    );
-
-    dynamic _bodyData;
-
-    try {
-_bodyData=jsonEncode(campaignAddSuperRequest);
-    } catch(error, stackTrace) {
-      throw DioException(
-         requestOptions: _options.compose(
-          _dio.options,
-          _path,
-        ),
-        type: DioExceptionType.unknown,
-        error: error,
-        stackTrace: stackTrace,
-      );
-    }
-
-    final _response = await _dio.request<Object>(
-      _path,
-      data: _bodyData,
-      options: _options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    CampaignAddSuperResponse? _responseData;
-
-    try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<CampaignAddSuperResponse, CampaignAddSuperResponse>(rawData, 'CampaignAddSuperResponse', growable: true);
-    } catch (error, stackTrace) {
-      throw DioException(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioExceptionType.unknown,
-        error: error,
-        stackTrace: stackTrace,
-      );
-    }
-
-    return Response<CampaignAddSuperResponse>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
-  }
-
-  /// Delete Campaign by Id
-  /// 
-  ///
-  /// Parameters:
-  /// * [id] - Numeric id to get
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future]
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<void>> devCampaignsDelete({ 
-    required int id,
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/campaigns/{Id}'.replaceAll('{' r'Id' '}', id.toString());
-    final _options = Options(
-      method: r'DELETE',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'apiKey',
-            'name': 'x-api-key',
-            'keyName': 'x-api-key',
-            'where': 'header',
-          },
-        ],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-    );
-
-    final _response = await _dio.request<Object>(
-      _path,
-      options: _options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    return _response;
-  }
-
   /// Remove Supervisors from Campaign by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric Campaign id
-  /// * [campaignRemoveSuperRequest] 
+  /// * [campaignRemoveSuperRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -448,7 +455,7 @@ _responseData = rawData == null ? null : deserialize<CampaignAddSuperResponse, C
   ///
   /// Returns a [Future] containing a [Response] with a [CampaignRemoveSuperResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CampaignRemoveSuperResponse>> devCampaignsRemovesuper({ 
+  Future<Response<CampaignRemoveSuperResponse>> campaignsRemovesuper({
     required int id,
     required CampaignRemoveSuperRequest campaignRemoveSuperRequest,
     CancelToken? cancelToken,
@@ -482,10 +489,10 @@ _responseData = rawData == null ? null : deserialize<CampaignAddSuperResponse, C
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(campaignRemoveSuperRequest);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(campaignRemoveSuperRequest);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -507,8 +514,12 @@ _bodyData=jsonEncode(campaignRemoveSuperRequest);
     CampaignRemoveSuperResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<CampaignRemoveSuperResponse, CampaignRemoveSuperResponse>(rawData, 'CampaignRemoveSuperResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<CampaignRemoveSuperResponse, CampaignRemoveSuperResponse>(
+              rawData, 'CampaignRemoveSuperResponse',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -532,11 +543,11 @@ _responseData = rawData == null ? null : deserialize<CampaignRemoveSuperResponse
   }
 
   /// Update Campaign by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric id to get
-  /// * [campaignRequest] 
+  /// * [campaignRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -546,7 +557,7 @@ _responseData = rawData == null ? null : deserialize<CampaignRemoveSuperResponse
   ///
   /// Returns a [Future] containing a [Response] with a [CampaignResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CampaignResponse>> devCampaignsUpdate({ 
+  Future<Response<CampaignResponse>> campaignsUpdate({
     required int id,
     required CampaignRequest campaignRequest,
     CancelToken? cancelToken,
@@ -580,10 +591,10 @@ _responseData = rawData == null ? null : deserialize<CampaignRemoveSuperResponse
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(campaignRequest);
-    } catch(error, stackTrace) {
+      _bodyData = jsonEncode(campaignRequest);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -605,8 +616,10 @@ _bodyData=jsonEncode(campaignRequest);
     CampaignResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignResponse>(rawData, 'CampaignResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<CampaignResponse, CampaignResponse>(rawData, 'CampaignResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -630,11 +643,11 @@ _responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignR
   }
 
   /// Upload audio file to Campaign by Id
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Numeric Campaign id
-  /// * [file] 
+  /// * [file]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -644,7 +657,7 @@ _responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignR
   ///
   /// Returns a [Future] containing a [Response] with a [CampaignUploadAudioResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CampaignUploadAudioResponse>> devCampaignsUploadblast({ 
+  Future<Response<CampaignUploadAudioResponse>> campaignsUploadblast({
     required int id,
     required MultipartFile file,
     CancelToken? cancelToken,
@@ -677,11 +690,9 @@ _responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignR
 
     dynamic _bodyData;
 
-    try {
-
-    } catch(error, stackTrace) {
+    try {} catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -703,8 +714,12 @@ _responseData = rawData == null ? null : deserialize<CampaignResponse, CampaignR
     CampaignUploadAudioResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<CampaignUploadAudioResponse, CampaignUploadAudioResponse>(rawData, 'CampaignUploadAudioResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<CampaignUploadAudioResponse, CampaignUploadAudioResponse>(
+              rawData, 'CampaignUploadAudioResponse',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -726,5 +741,4 @@ _responseData = rawData == null ? null : deserialize<CampaignUploadAudioResponse
       extra: _response.extra,
     );
   }
-
 }

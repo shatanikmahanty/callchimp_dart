@@ -2,22 +2,117 @@
 
 ## Load the API package
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 ```
 
 All URIs are relative to *https://api.callchimp.ai/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**campaignsAddsuper**](CampaignsApi.md#campaignsaddsuper) | **POST** /campaigns/{Id}/add_super | Add Supervisors to Campaign by Id
+[**campaignsDelete**](CampaignsApi.md#campaignsdelete) | **DELETE** /campaigns/{Id} | Delete Campaign by Id
 [**campaignsGet**](CampaignsApi.md#campaignsget) | **GET** /campaigns/{Id} | Get Campaign by Id
 [**campaignsList**](CampaignsApi.md#campaignslist) | **GET** /campaigns | List Campaigns
 [**campaignsPost**](CampaignsApi.md#campaignspost) | **POST** /campaigns | Create a Campaign
-[**devCampaignsAddsuper**](CampaignsApi.md#devcampaignsaddsuper) | **POST** /campaigns/{Id}/add_super | Add Supervisors to Campaign by Id
-[**devCampaignsDelete**](CampaignsApi.md#devcampaignsdelete) | **DELETE** /campaigns/{Id} | Delete Campaign by Id
-[**devCampaignsRemovesuper**](CampaignsApi.md#devcampaignsremovesuper) | **POST** /campaigns/{Id}/remove_super | Remove Supervisors from Campaign by Id
-[**devCampaignsUpdate**](CampaignsApi.md#devcampaignsupdate) | **PATCH** /campaigns/{Id} | Update Campaign by Id
-[**devCampaignsUploadblast**](CampaignsApi.md#devcampaignsuploadblast) | **PATCH** /campaigns/{Id}/upload_blast_file | Upload audio file to Campaign by Id
+[**campaignsRemovesuper**](CampaignsApi.md#campaignsremovesuper) | **POST** /campaigns/{Id}/remove_super | Remove Supervisors from Campaign by Id
+[**campaignsUpdate**](CampaignsApi.md#campaignsupdate) | **PATCH** /campaigns/{Id} | Update Campaign by Id
+[**campaignsUploadblast**](CampaignsApi.md#campaignsuploadblast) | **PATCH** /campaigns/{Id}/upload_blast_file | Upload audio file to Campaign by Id
 
+
+# **campaignsAddsuper**
+> CampaignAddSuperResponse campaignsAddsuper(id, campaignAddSuperRequest)
+
+Add Supervisors to Campaign by Id
+
+
+
+### Example
+```dart
+import 'package:djangoflow_openapi/api.dart';
+// TODO Configure API key authorization: x-api-key
+//defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKeyPrefix = 'Bearer';
+
+final api = DjangoflowOpenapi().getCampaignsApi();
+final int id = 56; // int | Numeric Campaign id
+final CampaignAddSuperRequest campaignAddSuperRequest = {"supervisors":[34,35,36]}; // CampaignAddSuperRequest | 
+
+try {
+    final response = api.campaignsAddsuper(id, campaignAddSuperRequest);
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling CampaignsApi->campaignsAddsuper: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Numeric Campaign id | 
+ **campaignAddSuperRequest** | [**CampaignAddSuperRequest**](CampaignAddSuperRequest.md)|  | 
+
+### Return type
+
+[**CampaignAddSuperResponse**](CampaignAddSuperResponse.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **campaignsDelete**
+> campaignsDelete(id)
+
+Delete Campaign by Id
+
+
+
+### Example
+```dart
+import 'package:djangoflow_openapi/api.dart';
+// TODO Configure API key authorization: x-api-key
+//defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKeyPrefix = 'Bearer';
+
+final api = DjangoflowOpenapi().getCampaignsApi();
+final int id = 56; // int | Numeric id to get
+
+try {
+    api.campaignsDelete(id);
+} catch on DioException (e) {
+    print('Exception when calling CampaignsApi->campaignsDelete: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Numeric id to get | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **campaignsGet**
 > CampaignResponse campaignsGet(id)
@@ -28,7 +123,7 @@ Get Campaign by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -75,7 +170,7 @@ List Campaigns
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -122,14 +217,14 @@ Create a Campaign
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKeyPrefix = 'Bearer';
 
 final api = DjangoflowOpenapi().getCampaignsApi();
-final CampaignRequest campaignRequest = {"max_retry":2,"name":"Campaign by API","phone_number":4,"type":"blastout"}; // CampaignRequest | 
+final CampaignRequest campaignRequest = {"max_retry":2,"name":"Blastout Campaign by API","phone_number":4,"type":"blastout"}; // CampaignRequest | 
 
 try {
     final response = api.campaignsPost(campaignRequest);
@@ -160,103 +255,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **devCampaignsAddsuper**
-> CampaignAddSuperResponse devCampaignsAddsuper(id, campaignAddSuperRequest)
-
-Add Supervisors to Campaign by Id
-
-
-
-### Example
-```dart
-import 'package:callchimp_dart/api.dart';
-// TODO Configure API key authorization: x-api-key
-//defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKeyPrefix = 'Bearer';
-
-final api = DjangoflowOpenapi().getCampaignsApi();
-final int id = 56; // int | Numeric Campaign id
-final CampaignAddSuperRequest campaignAddSuperRequest = {"supervisors":[34,35,36]}; // CampaignAddSuperRequest | 
-
-try {
-    final response = api.devCampaignsAddsuper(id, campaignAddSuperRequest);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling CampaignsApi->devCampaignsAddsuper: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Numeric Campaign id | 
- **campaignAddSuperRequest** | [**CampaignAddSuperRequest**](CampaignAddSuperRequest.md)|  | 
-
-### Return type
-
-[**CampaignAddSuperResponse**](CampaignAddSuperResponse.md)
-
-### Authorization
-
-[x-api-key](../README.md#x-api-key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **devCampaignsDelete**
-> devCampaignsDelete(id)
-
-Delete Campaign by Id
-
-
-
-### Example
-```dart
-import 'package:callchimp_dart/api.dart';
-// TODO Configure API key authorization: x-api-key
-//defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKeyPrefix = 'Bearer';
-
-final api = DjangoflowOpenapi().getCampaignsApi();
-final int id = 56; // int | Numeric id to get
-
-try {
-    api.devCampaignsDelete(id);
-} catch on DioException (e) {
-    print('Exception when calling CampaignsApi->devCampaignsDelete: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Numeric id to get | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[x-api-key](../README.md#x-api-key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **devCampaignsRemovesuper**
-> CampaignRemoveSuperResponse devCampaignsRemovesuper(id, campaignRemoveSuperRequest)
+# **campaignsRemovesuper**
+> CampaignRemoveSuperResponse campaignsRemovesuper(id, campaignRemoveSuperRequest)
 
 Remove Supervisors from Campaign by Id
 
@@ -264,7 +264,7 @@ Remove Supervisors from Campaign by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -275,10 +275,10 @@ final int id = 56; // int | Numeric Campaign id
 final CampaignRemoveSuperRequest campaignRemoveSuperRequest = {"supervisors":[35,36]}; // CampaignRemoveSuperRequest | 
 
 try {
-    final response = api.devCampaignsRemovesuper(id, campaignRemoveSuperRequest);
+    final response = api.campaignsRemovesuper(id, campaignRemoveSuperRequest);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling CampaignsApi->devCampaignsRemovesuper: $e\n');
+    print('Exception when calling CampaignsApi->campaignsRemovesuper: $e\n');
 }
 ```
 
@@ -304,8 +304,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **devCampaignsUpdate**
-> CampaignResponse devCampaignsUpdate(id, campaignRequest)
+# **campaignsUpdate**
+> CampaignResponse campaignsUpdate(id, campaignRequest)
 
 Update Campaign by Id
 
@@ -313,7 +313,7 @@ Update Campaign by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -324,10 +324,10 @@ final int id = 56; // int | Numeric id to get
 final CampaignRequest campaignRequest = {"max_retry":1,"name":"Campaign by API renamed!"}; // CampaignRequest | 
 
 try {
-    final response = api.devCampaignsUpdate(id, campaignRequest);
+    final response = api.campaignsUpdate(id, campaignRequest);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling CampaignsApi->devCampaignsUpdate: $e\n');
+    print('Exception when calling CampaignsApi->campaignsUpdate: $e\n');
 }
 ```
 
@@ -353,8 +353,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **devCampaignsUploadblast**
-> CampaignUploadAudioResponse devCampaignsUploadblast(id, file)
+# **campaignsUploadblast**
+> CampaignUploadAudioResponse campaignsUploadblast(id, file)
 
 Upload audio file to Campaign by Id
 
@@ -362,7 +362,7 @@ Upload audio file to Campaign by Id
 
 ### Example
 ```dart
-import 'package:callchimp_dart/api.dart';
+import 'package:djangoflow_openapi/api.dart';
 // TODO Configure API key authorization: x-api-key
 //defaultApiClient.getAuthentication<ApiKeyAuth>('x-api-key').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -373,10 +373,10 @@ final int id = 56; // int | Numeric Campaign id
 final MultipartFile file = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    final response = api.devCampaignsUploadblast(id, file);
+    final response = api.campaignsUploadblast(id, file);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling CampaignsApi->devCampaignsUploadblast: $e\n');
+    print('Exception when calling CampaignsApi->campaignsUploadblast: $e\n');
 }
 ```
 

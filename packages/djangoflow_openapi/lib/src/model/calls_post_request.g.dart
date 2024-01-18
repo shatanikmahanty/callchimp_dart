@@ -1,33 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'post_dev_calls_request.dart';
+part of 'calls_post_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-PostDevCallsRequest _$PostDevCallsRequestFromJson(Map<String, dynamic> json) =>
+CallsPostRequest _$CallsPostRequestFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      'PostDevCallsRequest',
+      'CallsPostRequest',
       json,
       ($checkedConvert) {
         $checkKeys(
           json,
-          requiredKeys: const ['lead', 'vendor_lead_code'],
+          requiredKeys: const ['lead', 'transaction_vars', 'vendor_lead_code'],
         );
-        final val = PostDevCallsRequest(
+        final val = CallsPostRequest(
           lead: $checkedConvert('lead', (v) => v as int),
+          transactionVars:
+              $checkedConvert('transaction_vars', (v) => v as Object),
           vendorLeadCode:
               $checkedConvert('vendor_lead_code', (v) => v as String),
         );
         return val;
       },
-      fieldKeyMap: const {'vendorLeadCode': 'vendor_lead_code'},
+      fieldKeyMap: const {
+        'transactionVars': 'transaction_vars',
+        'vendorLeadCode': 'vendor_lead_code'
+      },
     );
 
-Map<String, dynamic> _$PostDevCallsRequestToJson(
-        PostDevCallsRequest instance) =>
+Map<String, dynamic> _$CallsPostRequestToJson(CallsPostRequest instance) =>
     <String, dynamic>{
       'lead': instance.lead,
+      'transaction_vars': instance.transactionVars,
       'vendor_lead_code': instance.vendorLeadCode,
     };

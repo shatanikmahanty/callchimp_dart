@@ -3,22 +3,20 @@
 //
 
 import 'dart:async';
-
 // ignore: unused_import
 import 'dart:convert';
+
 import 'package:callchimp_dart/src/deserialize.dart';
+import 'package:callchimp_dart/src/model/phone_number_list_response.dart';
 import 'package:dio/dio.dart';
 
-import 'package:callchimp_dart/src/model/phone_number_list_response.dart';
-
 class PhoneNumbersApi {
-
   final Dio _dio;
 
   const PhoneNumbersApi(this._dio);
 
   /// List Phone Numbers
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -30,7 +28,7 @@ class PhoneNumbersApi {
   ///
   /// Returns a [Future] containing a [Response] with a [PhoneNumberListResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PhoneNumberListResponse>> getDevPhoneNumbers({ 
+  Future<Response<PhoneNumberListResponse>> phoneNumbersList({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -69,8 +67,11 @@ class PhoneNumbersApi {
     PhoneNumberListResponse? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<PhoneNumberListResponse, PhoneNumberListResponse>(rawData, 'PhoneNumberListResponse', growable: true);
+      final rawData = _response.data;
+      _responseData = rawData == null
+          ? null
+          : deserialize<PhoneNumberListResponse, PhoneNumberListResponse>(rawData, 'PhoneNumberListResponse',
+              growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -92,5 +93,4 @@ _responseData = rawData == null ? null : deserialize<PhoneNumberListResponse, Ph
       extra: _response.extra,
     );
   }
-
 }
